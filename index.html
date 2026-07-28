@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ahmed | Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Dark Theme Variables --- */
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #131b2e;
+            --card-bg: #1c273e;
+            --accent-color: #00e5ff;
+            --accent-hover: #00b8d4;
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+            --border-color: #2a3b5c;
+        }
+
+        /* --- Global Reset & Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Header / Navbar --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(19, 27, 46, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            margin-left: 25px;
+            color: var(--text-muted);
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #131b2e 0%, #0a0e17 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            background-color: rgba(0, 229, 255, 0.1);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-color);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* --- Video Projects Section --- */
+        .projects-section {
+            padding: 80px 8%;
+            background-color: var(--bg-secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.15);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .video-wrapper iframe, 
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Footer / Links Section --- */
+        footer {
+            padding: 60px 8% 30px;
+            background-color: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--card-bg);
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-card i {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+        }
+
+        .social-card:hover {
+            border-color: var(--accent-color);
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        .social-card:hover i {
+            color: #000;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            header { padding: 15px 5%; }
+            .projects-section { padding: 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">PortFolio 
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <span class="badge">1 Year Experience</span>
+        <h1>Hi, I'm <span>Muhammad Ahmed</span></h1>
+        <p>A passionate developer and creative video editor dedicated to delivering high-quality visual content and clean digital experiences.</p>
+    </section>
+
+    <!-- Video Projects Showcase -->
+    <section class="projects-section" id="projects">
+        <h2 class="section-title">Video Showcase</h2>
+        <p class="section-subtitle">Explore a selection of my latest video editing and multimedia projects.</p>
+
+        <div class="video-grid">
+            
+            <!-- Video Project 1 (Embedded HTML5 Video Example) -->
+            <div class="project-card">
+                <div class="video-wrapper">
+                    <!-- Replace the src with your actual video link or HTML5 video tag -->
+                    <iframe src="https://www.youtube.com/embed/g3-VxLQO7do" title="Project Video 1" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <h3>Commercial Video Edit</h3>
+                    <p>A fast-paced promotional video featuring smooth transitions and custom sound design.</p>
+                </div>
+            </div>
+
+            <!-- Video Project 2 -->
+            <div class="project-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project Video 2" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <h3>Social Media Reel</h3>
+                    <p>Engaging short-form content optimized for Instagram Reels and TikTok platforms.</p>
+                </div>
+            </div>
+
+            <!-- Video Project 3 -->
+            <div class="project-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/L_LUpnjgPso" title="Project Video 3" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <h3>Cinematic Motion Graphics</h3>
+                    <p>Color grading and visual effects built to create an immersive story narrative.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer / Links Section -->
+    <footer id="connect">
+        <h2>Let's Connect</h2>
+        <p style="color: var(--text-muted); margin-top: 5px;">Feel free to reach out for freelance work or collaborations.</p>
+
+        <div class="social-links">
+            <!-- Fiverr -->
+            <a href="https://www.fiverr.com/muhammad1ahmed4" target="_blank" class="social-card">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>Fiverr</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/Muhammad-Ahmed-Zubairi" target="_blank" class="social-card">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/Muhammad-Ahmed-Zubairi" target="_blank" class="social-card">
+                <i class="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/ahmedz_cut" target="_blank" class="social-card">
+                <i class="fa-brands fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 Muhammad Ahmed. All rights reserved.
+        </div>
+    </footer>
+    <script>
+        // vercel.json configuration
+        const config = {
+            "rewrites": [
+                {
+                    "source": "/(.*)",
+                    "destination": "/"
+                }
+            ]
+        };
+    </script>
+
+</body>
+</html>
