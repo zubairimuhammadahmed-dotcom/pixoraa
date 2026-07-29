@@ -130,9 +130,8 @@
         }
 
         .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            display: flex;
+            justify-content: center;
         }
 
         .project-card {
@@ -141,6 +140,8 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
             transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 400px;
+            width: 100%;
         }
 
         .project-card:hover {
@@ -148,16 +149,16 @@
             box-shadow: 0 10px 20px rgba(0, 229, 255, 0.15);
         }
 
-        .video-wrapper {
+        /* Adjusted for vertical Reels (9:16 aspect ratio) */
+        .reel-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 150%; /* Holds vertical height naturally */
             height: 0;
             overflow: hidden;
             background-color: #000;
         }
 
-        .video-wrapper iframe, 
-        .video-wrapper video {
+        .reel-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -244,59 +245,32 @@
 
     <!-- Header Navigation -->
     <header>
-        <div class="logo">PortFolio 
-
-        </div>
+        <div class="logo">PortFolio</div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="about">
         <span class="badge">1 Year Experience</span>
         <h1>Hi, I'm <span>Muhammad Ahmed</span></h1>
-        <p>A passionate web developer and creative video editor dedicated to delivering high-quality visual content and clean digital experiences.</p>
+        <p>A passionate developer and creative video editor dedicated to delivering high-quality visual content and clean digital experiences.</p>
     </section>
 
     <!-- Video Projects Showcase -->
     <section class="projects-section" id="projects">
         <h2 class="section-title">Video Showcase</h2>
-        <p class="section-subtitle">Explore a selection of my best video editing .</p>
+        <p class="section-subtitle">Explore a selection of my latest video editing and multimedia projects.</p>
 
         <div class="video-grid">
-            
-            <!-- Video Project 1 (Embedded HTML5 Video Example) -->
+            <!-- Featured Instagram Reel -->
             <div class="project-card">
-                <div class="video-wrapper">
-                    <!-- Replace the src with your actual video link or HTML5 video tag -->
-                    <iframe src="" title="Project Video 1" allowfullscreen></iframe>
+                <div class="reel-wrapper">
+                    <iframe src="https://www.instagram.com/reel/DbYUE8SMn3N/embed" title="Instagram Reel Showcase" allowfullscreen></iframe>
                 </div>
                 <div class="project-info">
-                    <h3>Commercial Video Edit</h3>
-                    <p>A fast-paced promotional video featuring smooth transitions and custom sound design.</p>
+                    <h3>Featured Short-Form Video</h3>
+                    <p>Custom social media reel edit showcasing dynamic pacing, visual hierarchy, and precise cuts.</p>
                 </div>
             </div>
-
-            <!-- Video Project 2 -->
-            <div class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="" title="Project Video 2" allowfullscreen></iframe>
-                </div>
-                <div class="project-info">
-                    <h3>Social Media Reel</h3>
-                    <p>Engaging short-form content optimized for Instagram Reels and TikTok platforms.</p>
-                </div>
-            </div>
-
-            <!-- Video Project 3 -->
-            <div class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/watch?v=9cgK3Z62mvg" title="Project Video 3" allowfullscreen></iframe>
-                </div>
-                <div class="project-info">
-                    <h3>Cinematic Motion Graphics</h3>
-                    <p>Color grading and visual effects built to create an immersive story narrative.</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -325,13 +299,9 @@
             </a>
 
             <!-- Instagram -->
-            <a href="https://www.instagram.com/the._edit_.lab?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-card">
+            <a href="https://www.instagram.com/ahmedz_cut" target="_blank" class="social-card">
                 <i class="fa-brands fa-instagram"></i>
                 <span>Instagram</span>
-            </a>
-             <a href="https://www.youtube.com/@theeditlab-r6u" target="_blank" class="social-card">
-               <i class="fa-brands fa-youtube-shorts"></i>
-                <span> <i class="fa-brands fa-youtube-shorts"></i> youtube</span>
             </a>
         </div>
 
@@ -339,6 +309,7 @@
             &copy; 2026 Muhammad Ahmed. All rights reserved.
         </div>
     </footer>
+
     <script>
         // vercel.json configuration
         const config = {
